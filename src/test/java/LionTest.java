@@ -8,9 +8,10 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.junit.runners.Parameterized;
+import org.mockito.junit.MockitoJUnitRunner;
 
-//@RunWith(MockitoJUnitRunner.class)
 @RunWith(Parameterized.class)
+//    @RunWith(MockitoJUnitRunner.class)
 
 public class LionTest {
     private final String Sex;
@@ -27,6 +28,7 @@ public class LionTest {
     }
 
     @Parameterized.Parameters
+
     public static Object[][] enterData() {
         return new Object[][] {
                 { "Самец", true},
@@ -47,8 +49,8 @@ public class LionTest {
     // тест, проверяет пол
     public void checkSex () throws Exception {
         Lion lion = new Lion(Sex, feline);
-        Lion lionSpy = Mockito.spy(lion);
-        Assert.assertEquals(mane, lionSpy.doesHaveMane());
+//        Lion lionSpy = Mockito.spy(lion);
+        Assert.assertEquals(mane, lion.doesHaveMane());
     }
 
     @Test(expected = Exception.class)
@@ -75,27 +77,6 @@ public class LionTest {
         lionSpy.getFood();
         Mockito.verify(feline).getFood("Хищник");
     }
-
-// тесты без параметризации:
-    /*
-    @Test
-    // тест, проверяет что у льва есть грива
-    public void checkSexMale () throws Exception {
-        Lion lion = new Lion("Самец", feline);
-        Lion lionSpy = Mockito.spy(lion);
-        boolean mane = true;
-        Assert.assertEquals(mane, lionSpy.doesHaveMane());
-    }
-
-    @Test
-    // тест, проверяет что у львицы нет гривы
-    public void checkSexFemale () throws Exception {
-        Lion lion = new Lion("Самка", feline);
-        Lion lionSpy = Mockito.spy(lion);
-        boolean mane = false;
-        Assert.assertEquals(mane, lionSpy.doesHaveMane());
-    }
-*/
 
 }
 

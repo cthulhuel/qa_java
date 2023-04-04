@@ -8,10 +8,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.junit.runners.Parameterized;
-import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(Parameterized.class)
-//    @RunWith(MockitoJUnitRunner.class)
 
 public class LionTest {
     private final String Sex;
